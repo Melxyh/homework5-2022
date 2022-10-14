@@ -1,0 +1,179 @@
+/* default view */
+
+/*step 1 - 3 */
+#logo{
+    /*step 1 part 1: linking animation with keyframe */
+    animation: logo 5s;
+    }
+    
+    /* step 1 part 2: writing out keyframe animation detail */
+
+    @keyframes logo {
+        from {
+            width: 20px;
+            opacity: 0;
+        }
+        to {
+            width: 475px;
+            opacity: 1;
+        }
+    }
+
+    /* step 2 - body element：Poppins font with serif as backup & backgound edits required*/
+
+    body{
+        font-family: "Poppins",serif;
+        background-image: url(../images/concrete_seamless.png);
+        background-color: #f1f1f1;
+    }
+
+    /* step 3: header needs to use flex to match example */
+header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* step 4： nav_links needs to use flex to match example*/
+
+.nav_links {
+    display: flex;
+    flex-direction: column;
+}
+
+/* step 5: visited & non-visited links need to have the same color */
+
+a:link, :visited{
+    color: blue;
+}
+
+/* step 6- direct children of card class: background and border edits requried */
+
+.card > header{
+    background-color: #288088;
+    border: 2px solid #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 50px 50px 0px 0px;
+}
+
+/* step 7-card class: flex-property required for initial size of 450px*/
+
+.card{
+    border-radius: 50px 50px 0px 0px;
+    flex-basis: 450px;
+}
+
+/* step 8-pricing class: flex & cards centered horizontally & vertically */
+
+.pricing {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* step 9-gallery class: border, margin, and width specifications required */
+
+.gallery img {
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* step 10-gallery class: flex property edits required to match example */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* screen size bigger than 900px */
+
+/* step 11 & 12 & 13 */
+
+@media screen and (min-width: 900px){
+    /* step 11 part 1-header tag needs flex-property edits to match example */
+    header {
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* step 11 part 2-.nav_links class needs flex-property edits to match example */
+
+    .nav_links {
+        flex-direction: row;
+    }
+
+    /* step 12 part 1-pricing class: example matching */
+    .pricing{
+        align-items: center;
+    }
+
+    /* step 12 part 2-card class: example matching & need flex-property specifications starting wtih 275px */
+    .card{
+        flex-basis: 275px;
+    }
+
+    /* step 13: first header within main needs to remain visible at top of screen (position sticks) */
+    body > header{
+        top: 0;
+        position: sticky;
+    }
+}
+
+/* step 14 - prefers reduced motion: logo class */
+
+@media (prefers-reduced-motion){
+    #logo{
+        animation: none !important;
+    }
+}
+
+/* step 15 - 21 print & portrait mode */
+
+@media print{
+    /* font on body: arial with backup of Helvetica & removed background */
+    body{
+        font-family: "Arial", "Helvetica";
+        background-image: none;
+    }
+
+    /* step 17 part 1: nav element needs spacing edits to match example */
+    nav{
+        width: 100%;
+    }
+
+    /* step 17 part 2: nav_links element needs spacing edits to match example */
+
+    .nav_links{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    /* step 18: pricing class: elements align along bottom */
+    .pricing{
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: nowrap;
+    }
+
+    /* step 19: card elements have border requirements of 2px solid border and light blue color with flex-basis of 325px
+     */
+    .card{
+        border: 2px solid #45ADDD;
+        flex-basis: 325px;
+    }
+
+    /* step 20: no part of gallery should be visible in print view */
+    .gallery, #gallery{
+        display: none;
+    }
+
+    /* add thumbs up entity to cards class without using list-style-type */
+    .card ul li:nth-child(even)::after {
+        content: "\1F44D"
+    }
+}
